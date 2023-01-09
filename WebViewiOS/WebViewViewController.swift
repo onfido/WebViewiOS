@@ -6,12 +6,11 @@
 //
 
 import Foundation
-import WebKit
 import UIKit
+import WebKit
 
-class WebViewViewController: UIViewController, WKNavigationDelegate {
-
-    var webView: WKWebView!
+final class WebViewViewController: UIViewController, WKNavigationDelegate {
+    private var webView: WKWebView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +42,6 @@ class WebViewViewController: UIViewController, WKNavigationDelegate {
         webView.load(URLRequest(url: url))
 
         view = webView
-
     }
 }
 
@@ -55,11 +53,17 @@ extension WebViewViewController: WKScriptMessageHandler {
         if message.name == "errorHandler" {
             /// Handle Error
             print(messageBody)
-        }
-
-        if message.name == "successHandler" {
+            showAlert(with: messageBody)
+        } else if message.name == "successHandler" {
             /// Handle Success
             print(messageBody)
+            showAlert(with: messageBody)
         }
+    }
+
+    private func showAlert(with message: String) {
+        let controller = UIAlertController(title: "Flow ended", message: message, preferredStyle: .alert)
+        controller.addAction(.init(title: "Okay", style: .cancel))
+        present(controller, animated: true)
     }
 }

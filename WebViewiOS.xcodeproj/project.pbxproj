@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		FCB28EB828D358A5008273D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB728D358A5008273D4 /* AppDelegate.swift */; };
 		FCB28EBA28D358A5008273D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB928D358A5008273D4 /* SceneDelegate.swift */; };
-		FCB28EBC28D358A5008273D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EBB28D358A5008273D4 /* ViewController.swift */; };
-		FCB28EBF28D358A5008273D4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EBD28D358A5008273D4 /* Main.storyboard */; };
 		FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC028D358A7008273D4 /* Assets.xcassets */; };
 		FCB28EC428D358A7008273D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */; };
 		FCB28ECC28D35937008273D4 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28ECB28D35937008273D4 /* WebViewViewController.swift */; };
@@ -21,8 +19,6 @@
 		FCB28EB428D358A5008273D4 /* WebViewiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB28EB728D358A5008273D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB28EB928D358A5008273D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		FCB28EBB28D358A5008273D4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FCB28EBE28D358A5008273D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FCB28EC028D358A7008273D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FCB28EC328D358A7008273D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCB28EC528D358A7008273D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -62,10 +58,8 @@
 			children = (
 				FCB28EB728D358A5008273D4 /* AppDelegate.swift */,
 				FCB28EB928D358A5008273D4 /* SceneDelegate.swift */,
-				FCB28EBB28D358A5008273D4 /* ViewController.swift */,
 				FCB28ECB28D35937008273D4 /* WebViewViewController.swift */,
 				FCD5369228DB50EA0037152A /* webview_script.js */,
-				FCB28EBD28D358A5008273D4 /* Main.storyboard */,
 				FCB28EC028D358A7008273D4 /* Assets.xcassets */,
 				FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */,
 				FCB28EC528D358A7008273D4 /* Info.plist */,
@@ -134,7 +128,6 @@
 				FCB28EC428D358A7008273D4 /* LaunchScreen.storyboard in Resources */,
 				FCD5369328DB50EA0037152A /* webview_script.js in Resources */,
 				FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */,
-				FCB28EBF28D358A5008273D4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,7 +138,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB28EBC28D358A5008273D4 /* ViewController.swift in Sources */,
 				FCB28EB828D358A5008273D4 /* AppDelegate.swift in Sources */,
 				FCB28ECC28D35937008273D4 /* WebViewViewController.swift in Sources */,
 				FCB28EBA28D358A5008273D4 /* SceneDelegate.swift in Sources */,
@@ -155,14 +147,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FCB28EBD28D358A5008273D4 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FCB28EBE28D358A5008273D4 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -300,7 +284,7 @@
 				INFOPLIST_FILE = WebViewiOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -328,7 +312,7 @@
 				INFOPLIST_FILE = WebViewiOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
