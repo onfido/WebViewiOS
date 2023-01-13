@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B3BF755E296DB395007FA070 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF755D296DB395007FA070 /* ConnectionView.swift */; };
+		B3BF756029704D50007FA070 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF755F29704D50007FA070 /* Reachability.swift */; };
 		FCB28EB828D358A5008273D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB728D358A5008273D4 /* AppDelegate.swift */; };
 		FCB28EBA28D358A5008273D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB928D358A5008273D4 /* SceneDelegate.swift */; };
 		FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC028D358A7008273D4 /* Assets.xcassets */; };
@@ -16,7 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FCB28EB428D358A5008273D4 /* WebViewiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WebViewiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3BF755D296DB395007FA070 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
+		B3BF755F29704D50007FA070 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		FCB28EB428D358A5008273D4 /* SmartCaptureDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCaptureDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB28EB728D358A5008273D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB28EB928D358A5008273D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FCB28EC028D358A7008273D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,7 +44,7 @@
 		FCB28EAB28D358A5008273D4 = {
 			isa = PBXGroup;
 			children = (
-				FCB28EB628D358A5008273D4 /* WebViewiOS */,
+				FCB28EB628D358A5008273D4 /* SmartCaptureDemo */,
 				FCB28EB528D358A5008273D4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,31 +52,33 @@
 		FCB28EB528D358A5008273D4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FCB28EB428D358A5008273D4 /* WebViewiOS.app */,
+				FCB28EB428D358A5008273D4 /* SmartCaptureDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		FCB28EB628D358A5008273D4 /* WebViewiOS */ = {
+		FCB28EB628D358A5008273D4 /* SmartCaptureDemo */ = {
 			isa = PBXGroup;
 			children = (
 				FCB28EB728D358A5008273D4 /* AppDelegate.swift */,
 				FCB28EB928D358A5008273D4 /* SceneDelegate.swift */,
 				FCB28ECB28D35937008273D4 /* WebViewViewController.swift */,
+				B3BF755F29704D50007FA070 /* Reachability.swift */,
+				B3BF755D296DB395007FA070 /* ConnectionView.swift */,
 				FCD5369228DB50EA0037152A /* webview_script.js */,
 				FCB28EC028D358A7008273D4 /* Assets.xcassets */,
 				FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */,
 				FCB28EC528D358A7008273D4 /* Info.plist */,
 			);
-			path = WebViewiOS;
+			path = SmartCaptureDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		FCB28EB328D358A5008273D4 /* WebViewiOS */ = {
+		FCB28EB328D358A5008273D4 /* SmartCaptureDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FCB28EC828D358A7008273D4 /* Build configuration list for PBXNativeTarget "WebViewiOS" */;
+			buildConfigurationList = FCB28EC828D358A7008273D4 /* Build configuration list for PBXNativeTarget "SmartCaptureDemo" */;
 			buildPhases = (
 				FCB28EB028D358A5008273D4 /* Sources */,
 				FCB28EB128D358A5008273D4 /* Frameworks */,
@@ -82,9 +88,11 @@
 			);
 			dependencies = (
 			);
-			name = WebViewiOS;
+			name = SmartCaptureDemo;
+			packageProductDependencies = (
+			);
 			productName = WebViewiOS;
-			productReference = FCB28EB428D358A5008273D4 /* WebViewiOS.app */;
+			productReference = FCB28EB428D358A5008273D4 /* SmartCaptureDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -102,7 +110,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FCB28EAF28D358A5008273D4 /* Build configuration list for PBXProject "WebViewiOS" */;
+			buildConfigurationList = FCB28EAF28D358A5008273D4 /* Build configuration list for PBXProject "SmartCaptureDemo" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -111,11 +119,13 @@
 				Base,
 			);
 			mainGroup = FCB28EAB28D358A5008273D4;
+			packageReferences = (
+			);
 			productRefGroup = FCB28EB528D358A5008273D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FCB28EB328D358A5008273D4 /* WebViewiOS */,
+				FCB28EB328D358A5008273D4 /* SmartCaptureDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +150,8 @@
 			files = (
 				FCB28EB828D358A5008273D4 /* AppDelegate.swift in Sources */,
 				FCB28ECC28D35937008273D4 /* WebViewViewController.swift in Sources */,
+				B3BF755E296DB395007FA070 /* ConnectionView.swift in Sources */,
+				B3BF756029704D50007FA070 /* Reachability.swift in Sources */,
 				FCB28EBA28D358A5008273D4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,7 +293,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2X946JA9UV;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WebViewiOS/Info.plist;
+				INFOPLIST_FILE = SmartCaptureDemo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -305,11 +320,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2X946JA9UV;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3DF7TM3Y9C;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = WebViewiOS/Info.plist;
+				INFOPLIST_FILE = SmartCaptureDemo/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -320,8 +340,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.onfido.WebViewiOS;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.onfido.smart-capture-demo-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "smart-capture-appstorer-adhoc";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -331,7 +353,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FCB28EAF28D358A5008273D4 /* Build configuration list for PBXProject "WebViewiOS" */ = {
+		FCB28EAF28D358A5008273D4 /* Build configuration list for PBXProject "SmartCaptureDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCB28EC628D358A7008273D4 /* Debug */,
@@ -340,7 +362,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FCB28EC828D358A7008273D4 /* Build configuration list for PBXNativeTarget "WebViewiOS" */ = {
+		FCB28EC828D358A7008273D4 /* Build configuration list for PBXNativeTarget "SmartCaptureDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FCB28EC928D358A7008273D4 /* Debug */,
