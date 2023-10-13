@@ -20,7 +20,7 @@ You can find more detailed documentation here:
 
 You will need to enable Camera, Mic, Photo Library and Location Access in your `info.plist` file: 
 
-```info.plist
+```
     <key>NSCameraUsageDescription</key>
     <string>Camera Access</string>
     <key>NSLocationWhenInUseUsageDescription</key>
