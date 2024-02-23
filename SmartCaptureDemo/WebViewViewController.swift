@@ -1,72 +1,80 @@
 //
 //  WebViewViewController.swift
-//  WebViewiOS
+//  SmartCaptureDemo
 //
-//  Created by Pedro Henrique on 15/09/2022.
+//  Copyright © 2016-2023 Onfido. All rights reserved.
 //
 
-import Foundation
-import Network
 import UIKit
 import WebKit
 
-final class WebViewViewController: UIViewController, WKNavigationDelegate {
+final class WebViewViewController: UIViewController {
+
+    // MARK: - Properties
+
+    private let webSDKVersion: WebSDKVersion
     private var webView: WKWebView?
-    let connectionView = ConnectionView()
-    private let monitor = NWPathMonitor()
-    var isConnected = true
 
-    override func viewDidLoad() {
+    // MARK: - Initialization
+
+    init(webSDKVersion: WebSDKVersion) {
+        self.webSDKVersion = webSDKVersion
+        super.init(nibName: nil, bundle: nil)
+
+        Task {
+            do {
+                let applicantResponse: ApplicantResponse = try await ApiManager.shared.getData(from: .applicantApi)
+
+                let sdkTokenResponse: SDKTokenResponse = try await ApiManager.shared.getData(
+                    from: .sdkTokenApi(applicantID: applicantResponse.id)
+                )
+                let workflowRunResponse: WorkFlowRunResponse = try await ApiManager.shared.getData(
+                    from: .workFlowRunApi(applicantID: applicantResponse.id)
+                )
+
+                let config = setupWebConfiguration(token: sdkTokenResponse.token, workflowRunId: workflowRunResponse.id)
+                setupWebView(config: config)
+            } catch {
+                print("⚠️: \(error)")
+            }
+        }
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override public func viewDidLoad() {
         super.viewDidLoad()
-        loadContent()
-        connectionView.retryButton.addTarget(self, action: #selector(retryAction), for: .touchUpInside)
+        view.backgroundColor = .white
     }
 
-    @objc func retryAction() {
-        loadContent()
-    }
+    // MARK: - Private Methods
 
-    private func checkConnection() {
-        monitor.pathUpdateHandler = { [weak self] path in
-            guard let self = self else { return }
-            self.isConnected = path.status == .satisfied
-            if self.isConnected {
-                self.showWebViewContent()
-            }
+    @MainActor private func setupWebConfiguration(token: String?, workflowRunId: String?) -> WKWebViewConfiguration {
+        /// Load script
+        var scriptPath: String?
+        var scriptSource: String?
+
+        guard let token, let workflowRunId else { return WKWebViewConfiguration() }
+        switch webSDKVersion {
+        case .scl:
+            scriptPath = Bundle.main.path(forResource: "webview_script", ofType: "js")
+            scriptSource = try? String(contentsOfFile: scriptPath ?? "")
+        case .cdn:
+            scriptSource = """
+            Onfido.init({
+                token: '\(token)',
+                workflowRunId: '\(workflowRunId)',
+                containerId: 'onfido-mount'
+            })
+            """
         }
-        monitor.start(queue: DispatchQueue.global(qos: .userInitiated))
-    }
-
-    private func loadContent() {
-        Reachability.shared.checkConnection()
-        if Reachability.shared.isConnected {
-            showWebViewContent()
-            UIView.animate(withDuration: 0.2, delay: 0) { [weak self] in
-                self?.connectionView.alpha = 0
-                self?.webView?.alpha = 1
-            }
-
-        } else { // not connected
-            if !view.subviews.contains(connectionView) { // add sub view
-                view.setChildConstrainsEqualToParent(subView: connectionView, inset: .init(top: 80, left: 20, bottom: 80, right: 20))
-            }
-            UIView.animate(withDuration: 0.2, delay: 0) { [weak self] in
-                self?.connectionView.alpha = 1
-                self?.webView?.alpha = 0
-            }
-        }
-    }
-
-    private func showWebViewContent() {
-        /// Load script from js file
-        guard
-            let scriptPath = Bundle.main.path(forResource: "webview_script", ofType: "js"),
-            let scriptSource = try? String(contentsOfFile: scriptPath)
-        else { return }
 
         /// Inject script into WebView controller
-        let script = WKUserScript(source: scriptSource, injectionTime: .atDocumentEnd, forMainFrameOnly: false)
+        guard let scriptSource else { return WKWebViewConfiguration() }
         let contentController = WKUserContentController()
+        let script = WKUserScript(source: scriptSource, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
         contentController.addUserScript(script)
 
         /// Add callback handlers see `WKScriptMessageHandler`
@@ -75,18 +83,47 @@ final class WebViewViewController: UIViewController, WKNavigationDelegate {
 
         /// Configure WebView
         let webConfiguration = WKWebViewConfiguration()
-        webConfiguration.allowsInlineMediaPlayback = true
         webConfiguration.userContentController = contentController
 
-        /// Load the URL and present the WebView content
-        let url = URL(string: "https://crowd-testing.eu.onfido.app/f/755350ab-4ed2-4e4f-8834-d57c98513658/")!
+        return webConfiguration
+    }
 
-        webView = WKWebView(frame: .zero, configuration: webConfiguration)
-        guard let webView = webView else { return }
-        webView.load(URLRequest(url: url))
+    private func setupWebView(config: WKWebViewConfiguration) {
+        let webView = WKWebView(frame: view.bounds, configuration: config)
+        webView.navigationDelegate = self
 
-        guard !view.subviews.contains(webView) else { return }
-        view.setChildConstrainsEqualToParent(subView: webView)
+        view.addSubview(webView)
+        webView.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12)
+        ])
+
+        switch webSDKVersion {
+        case .scl:
+            webView.load(nil, version: .scl) { err in
+                print("🚨: \(err)")
+            }
+        case .cdn:
+            webView.load("index", version: .cdn) { err in
+                print("🚨🚨🚨: \(err)")
+            }
+        }
+
+        self.webView = webView
+    }
+}
+
+extension WebViewViewController: WKNavigationDelegate {
+    public func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
+        decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
+    ) {
+        decisionHandler(.allow)
     }
 }
 
@@ -98,16 +135,16 @@ extension WebViewViewController: WKScriptMessageHandler {
         if message.name == "errorHandler" {
             /// Handle Error
             print(messageBody)
-            showAlert(with: messageBody)
+            showAlert(title: "Error", with: messageBody)
         } else if message.name == "successHandler" {
             /// Handle Success
             print(messageBody)
-            showAlert(with: messageBody)
+            showAlert(title: "Smart Capture", with: messageBody)
         }
     }
 
-    private func showAlert(with message: String) {
-        let controller = UIAlertController(title: "Smart Capture", message: message, preferredStyle: .alert)
+    func showAlert(title: String, with message: String) {
+        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
         controller.addAction(.init(title: "Okay", style: .cancel))
         present(controller, animated: true)
     }
