@@ -104,6 +104,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB28EC828D358A7008273D4 /* Build configuration list for PBXNativeTarget "SmartCaptureDemo" */;
 			buildPhases = (
+				878C0A5F2B8E1AC700781853 /* Run Script */,
 				FCB28EB128D358A5008273D4 /* Frameworks */,
 				FCB28EB228D358A5008273D4 /* Resources */,
 				878C0A522B86523300781853 /* Sources */,
@@ -167,6 +168,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		878C0A5F2B8E1AC700781853 /* Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "./dot_env_ios.rb\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		878C0A522B86523300781853 /* Sources */ = {

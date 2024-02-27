@@ -17,7 +17,7 @@ final class ApiManager {
     private let decoder = JSONDecoder()
 
     private init() {}
-
+ 
     func getData<D: Decodable>(from endpoint: ApiEndpoint) async throws -> D {
         let request = try createRequest(from: endpoint)
         let networkResponse: NetworkResponse = try await session.data(for: request)
@@ -28,8 +28,8 @@ final class ApiManager {
 
     private func createRequest(from endpoint: ApiEndpoint) throws -> URLRequest {
         /// Inject your token and workflowID
-        let apiToken = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
-        let workflowId = ProcessInfo.processInfo.environment["WORKFLOW_ID"] ?? "" 
+        let apiToken: String = Env.API_KEY
+        let workflowId: String = Env.WORKFLOW_ID
 
         var parameters: [String: String]?
         switch endpoint {
