@@ -28,8 +28,8 @@ final class ApiManager {
 
     private func createRequest(from endpoint: ApiEndpoint) throws -> URLRequest {
         /// Inject your token and workflowID
-        let apiToken = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
-        let workflowId = ProcessInfo.processInfo.environment["WORKFLOW_ID"] ?? "" 
+        let apiToken = EnvironmentVars.apiKey
+        let workflowId = EnvironmentVars.workflowID
 
         var parameters: [String: String]?
         switch endpoint {

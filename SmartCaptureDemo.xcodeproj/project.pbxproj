@@ -18,6 +18,8 @@
 		878C0A5B2B86527800781853 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7A22B864FE2009D81F1 /* ApiManager.swift */; };
 		878C0A5C2B86527800781853 /* ApiManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7A32B864FE2009D81F1 /* ApiManagerError.swift */; };
 		878C0A5E2B8655E700781853 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 878C0A5D2B8655E700781853 /* index.html */; };
+		878C0A612B8F436100781853 /* EnvironmentVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C0A602B8F436100781853 /* EnvironmentVars.swift */; };
+		878C0A632B8F437400781853 /* Env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 878C0A622B8F437400781853 /* Env.xcconfig */; };
 		FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC028D358A7008273D4 /* Assets.xcassets */; };
 		FCB28EC428D358A7008273D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */; };
 		FCD5369328DB50EA0037152A /* webview_script.js in Resources */ = {isa = PBXBuildFile; fileRef = FCD5369228DB50EA0037152A /* webview_script.js */; };
@@ -33,6 +35,8 @@
 		8734E7AE2B865040009D81F1 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = SmartCaptureDemo/MainVC.swift; sourceTree = "<group>"; };
 		8734E7B02B865065009D81F1 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = SmartCaptureDemo/WebView.swift; sourceTree = "<group>"; };
 		878C0A5D2B8655E700781853 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index.html; path = SmartCaptureDemo/index.html; sourceTree = "<group>"; };
+		878C0A602B8F436100781853 /* EnvironmentVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnvironmentVars.swift; path = SmartCaptureDemo/EnvironmentVars.swift; sourceTree = "<group>"; };
+		878C0A622B8F437400781853 /* Env.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; name = Env.xcconfig; path = SmartCaptureDemo/Env.xcconfig; sourceTree = "<group>"; };
 		B3BF755D296DB395007FA070 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
 		B3BF755F29704D50007FA070 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		FCB28EB428D358A5008273D4 /* SmartCaptureDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCaptureDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,7 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				878C0A5D2B8655E700781853 /* index.html */,
+				878C0A622B8F437400781853 /* Env.xcconfig */,
 				8734E7B02B865065009D81F1 /* WebView.swift */,
+				878C0A602B8F436100781853 /* EnvironmentVars.swift */,
 				8734E7AE2B865040009D81F1 /* MainVC.swift */,
 				8734E7AB2B865014009D81F1 /* HTTPURLResponse+Ext.swift */,
 				8734E7AA2B865014009D81F1 /* WebView+Ext.swift */,
@@ -162,6 +168,7 @@
 				878C0A5E2B8655E700781853 /* index.html in Resources */,
 				FCB28EC428D358A7008273D4 /* LaunchScreen.storyboard in Resources */,
 				FCD5369328DB50EA0037152A /* webview_script.js in Resources */,
+				878C0A632B8F437400781853 /* Env.xcconfig in Resources */,
 				FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -183,6 +190,7 @@
 				878C0A542B86523F00781853 /* MainVC.swift in Sources */,
 				878C0A552B86523F00781853 /* HTTPURLResponse+Ext.swift in Sources */,
 				878C0A562B86523F00781853 /* WebView+Ext.swift in Sources */,
+				878C0A612B8F436100781853 /* EnvironmentVars.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +210,7 @@
 /* Begin XCBuildConfiguration section */
 		FCB28EC628D358A7008273D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 878C0A622B8F437400781853 /* Env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -262,6 +271,7 @@
 		};
 		FCB28EC728D358A7008273D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 878C0A622B8F437400781853 /* Env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -316,6 +326,7 @@
 		};
 		FCB28EC928D358A7008273D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 878C0A622B8F437400781853 /* Env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -348,6 +359,7 @@
 		};
 		FCB28ECA28D358A7008273D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 878C0A622B8F437400781853 /* Env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
