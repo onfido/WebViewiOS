@@ -14,15 +14,9 @@ extension WKWebView {
             return onError(.invalidFilePath)
         }
 
-        do {
-            switch version {
-            case .scl:
-                guard let url = URL(string: ApiEndpoint.sclWebView.path) else { return }
-                load(URLRequest(url: url))
-            case .cdn:
-                let htmlString = try String(contentsOfFile: filePath, encoding: .utf8)
-                loadHTMLString(htmlString, baseURL: URL(fileURLWithPath: filePath))
-            }
+        do {           
+            let htmlString = try String(contentsOfFile: filePath, encoding: .utf8)
+            loadHTMLString(htmlString, baseURL: URL(fileURLWithPath: filePath))       
         } catch let error {
             onError(.contentConversion(error.localizedDescription))
         }

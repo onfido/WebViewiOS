@@ -57,20 +57,15 @@ final class WebViewViewController: UIViewController {
         var scriptSource: String?
 
         guard let token, let workflowRunId else { return WKWebViewConfiguration() }
-        switch webSDKVersion {
-        case .scl:
-            scriptPath = Bundle.main.path(forResource: "webview_script", ofType: "js")
-            scriptSource = try? String(contentsOfFile: scriptPath ?? "")
-        case .cdn:
-            scriptSource = """
-            Onfido.init({
-                token: '\(token)',
-                workflowRunId: '\(workflowRunId)',
-                containerId: 'onfido-mount'
-            })
-            """
-        }
-
+       
+        scriptSource = """
+        Onfido.init({
+            token: '\(token)',
+            workflowRunId: '\(workflowRunId)',
+            containerId: 'onfido-mount'
+        })
+        """
+        
         /// Inject script into WebView controller
         guard let scriptSource else { return WKWebViewConfiguration() }
         let contentController = WKUserContentController()
@@ -102,17 +97,10 @@ final class WebViewViewController: UIViewController {
             webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12)
         ])
 
-        switch webSDKVersion {
-        case .scl:
-            webView.load(nil, version: .scl) { err in
-                print("🚨: \(err)")
-            }
-        case .cdn:
-            webView.load("index", version: .cdn) { err in
-                print("🚨🚨🚨: \(err)")
-            }
+        webView.load("index", version: .cdn) { err in
+            print("🚨🚨🚨: \(err)")
         }
-
+        
         self.webView = webView
     }
 }
