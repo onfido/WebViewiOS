@@ -55,9 +55,33 @@ final class WebViewViewController: UIViewController {
         /// Load script
         var scriptPath: String?
         var scriptSource: String?
+        var scriptTag: String?
 
         guard let token, let workflowRunId else { return WKWebViewConfiguration() }
-       
+
+       // htmlString = "<head><script src='https://sdk.onfido.com/v14'></script></head>"
+
+    //    //let metaTag = "<meta name=\"viewport\" content=\"user-scalable=no, width=device-width\">"
+    //    let scriptTag = "<script src=\"https://sdk.onfido.com/v14\" charset=\"utf-8\" ></script>"
+    //    let html = "\(scriptTag)"
+
+    //     // Load HTML string to web view in main thread
+    //     webView.loadHTMLString(html, baseURL: nil)
+
+        scriptTag = """
+        var script = document.createElement('script');
+        script.src = 'https://sdk.onfido.com/v14';
+        script.type = 'text/javascript';
+        script.charset = 'utf-8';
+        document.getElementsByTagName('head')[0].appendChild(script);
+        """
+
+        guard let scriptTag else { return WKWebViewConfiguration() }
+
+        let contentController = WKUserContentController()
+        let userScript = WKUserScript(source: scriptTag , injectionTime: .atDocumentStart, forMainFrameOnly: true)
+         contentController.addUserScript(userScript)
+  
         scriptSource = """
         Onfido.init({
             token: '\(token)',
@@ -68,9 +92,9 @@ final class WebViewViewController: UIViewController {
         
         /// Inject script into WebView controller
         guard let scriptSource else { return WKWebViewConfiguration() }
-        let contentController = WKUserContentController()
+      
         let script = WKUserScript(source: scriptSource, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-        contentController.addUserScript(script)
+        contentController.addUserScript( script)
 
         /// Add callback handlers see `WKScriptMessageHandler`
         contentController.add(self, name: "errorHandler")
@@ -84,7 +108,7 @@ final class WebViewViewController: UIViewController {
     }
 
     private func setupWebView(config: WKWebViewConfiguration) {
-        let webView = WKWebView(frame: view.bounds, configuration: config)
+        let webView = WKWebView(frame: CGRect.zero, configuration: config)
         webView.navigationDelegate = self
 
         view.addSubview(webView)

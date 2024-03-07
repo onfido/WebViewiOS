@@ -28,4 +28,11 @@ enum EnvironmentVars {
         }
         return id
     }()
+
+    static let sdkTargetVersion: String = {
+        guard let version = EnvironmentVars.infoDict["SDK_TARGET_VERSION"] as? String else {
+            fatalError("SDK version id not found")
+        }
+        return version
+    }()
 }

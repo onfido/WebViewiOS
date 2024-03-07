@@ -11,6 +11,8 @@
 		<key>WORKFLOW_ID</key>
 		<string>${WORKFLOW_ID}</string>
 	</dict>
+	<key>SDK_TARGET_VERSION</key>
+	<string>${SDK_TARGET_VERSION}</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
