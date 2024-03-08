@@ -16,21 +16,23 @@ enum EnvironmentVars {
     }()
 
     static let apiKey: String = {
-        guard let key = EnvironmentVars.infoDict["API_KEY"] as? String else {
+        guard let key = EnvironmentVars.infoDict["API_KEY"] as? String, !key.isEmpty else {
             fatalError("api key not found")
         }
         return key
     }()
 
     static let workflowID: String = {
-        guard let id = EnvironmentVars.infoDict["WORKFLOW_ID"] as? String else {
-            fatalError("workflow id not found")
+        guard let id = EnvironmentVars.infoDict["WORKFLOW_ID"] as? String, !id.isEmpty else {
+            fatalError("Workflow ID not found")
         }
         return id
     }()
 
-    static var sdkTargetVersion: String {
-        let version = (EnvironmentVars.infoDict["SDK_TARGET_VERSION"] as? String) ?? ""
-        return version.isEmpty ? "latest" : version
-    }
+    static let sdkTargetVersion: String = {
+        guard let version = EnvironmentVars.infoDict["SDK_TARGET_VERSION"] as? String, !version.isEmpty else {
+            return "latest"
+        }
+        return version
+    }()
 }
