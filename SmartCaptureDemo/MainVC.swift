@@ -21,7 +21,7 @@ class MainVC: UIViewController {
     // MARK: - Actions
 
     @objc func loadWebView() {
-        navigationController?.pushViewController(WebViewViewController(webSDKVersion: .cdn), animated: true)
+        navigationController?.pushViewController(WebViewViewController(sdkTargetVersion: EnvironmentVars.sdkTargetVersion), animated: true)
     }
 }
 

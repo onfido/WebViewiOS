@@ -48,8 +48,6 @@ final class ApiManager {
                 "applicant_id": "\(id)",
                 "workflow_id": "\(workflowId)"
             ]
-        case .sclWebView:
-            break
         }
 
         let urlString = "\(baseURL)\(endpoint.path)"

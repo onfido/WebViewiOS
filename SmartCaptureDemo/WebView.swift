@@ -7,11 +7,6 @@
 
 import Foundation
 
-enum WebSDKVersion {
-    case scl
-    case cdn
-}
-
 struct ApplicantResponse: Decodable {
     let id: String
 }

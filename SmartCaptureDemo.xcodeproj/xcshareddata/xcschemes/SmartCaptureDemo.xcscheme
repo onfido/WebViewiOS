@@ -49,18 +49,6 @@
             ReferencedContainer = "container:SmartCaptureDemo.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "API_KEY"
-            value = "api_live.7ISao_IrDvX.RRXBTJ651LY1w4Nb7WED1wUOEKhjjFWP"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-         <EnvironmentVariable
-            key = "WORKFLOW_ID"
-            value = "9cdf2a2c-57dd-47db-a53e-b33988c540b8"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

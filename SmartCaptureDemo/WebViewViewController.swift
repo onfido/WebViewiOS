@@ -12,13 +12,13 @@ final class WebViewViewController: UIViewController {
 
     // MARK: - Properties
 
-    private let webSDKVersion: WebSDKVersion
+    private let sdkTargetVersion: String
     private var webView: WKWebView?
 
     // MARK: - Initialization
 
-    init(webSDKVersion: WebSDKVersion) {
-        self.webSDKVersion = webSDKVersion
+    init(sdkTargetVersion: String) {
+        self.sdkTargetVersion = sdkTargetVersion
         super.init(nibName: nil, bundle: nil)
 
         Task {
@@ -31,9 +31,11 @@ final class WebViewViewController: UIViewController {
                 let workflowRunResponse: WorkFlowRunResponse = try await ApiManager.shared.getData(
                     from: .workFlowRunApi(applicantID: applicantResponse.id)
                 )
-
+                
+                print("ℹ️ Integrating with Web SDK version: \(sdkTargetVersion)")
+                
                 let config = setupWebConfiguration(token: sdkTokenResponse.token, workflowRunId: workflowRunResponse.id)
-                setupWebView(config: config)
+                setupWebView(config: config, sdkTargetVersion: sdkTargetVersion)
             } catch {
                 print("⚠️: \(error)")
             }
@@ -50,38 +52,14 @@ final class WebViewViewController: UIViewController {
     }
 
     // MARK: - Private Methods
-
     @MainActor private func setupWebConfiguration(token: String?, workflowRunId: String?) -> WKWebViewConfiguration {
         /// Load script
-        var scriptPath: String?
         var scriptSource: String?
-        var scriptTag: String?
 
         guard let token, let workflowRunId else { return WKWebViewConfiguration() }
-
-       // htmlString = "<head><script src='https://sdk.onfido.com/v14'></script></head>"
-
-    //    //let metaTag = "<meta name=\"viewport\" content=\"user-scalable=no, width=device-width\">"
-    //    let scriptTag = "<script src=\"https://sdk.onfido.com/v14\" charset=\"utf-8\" ></script>"
-    //    let html = "\(scriptTag)"
-
-    //     // Load HTML string to web view in main thread
-    //     webView.loadHTMLString(html, baseURL: nil)
-
-        scriptTag = """
-        var script = document.createElement('script');
-        script.src = 'https://sdk.onfido.com/v14';
-        script.type = 'text/javascript';
-        script.charset = 'utf-8';
-        document.getElementsByTagName('head')[0].appendChild(script);
-        """
-
-        guard let scriptTag else { return WKWebViewConfiguration() }
-
+        
         let contentController = WKUserContentController()
-        let userScript = WKUserScript(source: scriptTag , injectionTime: .atDocumentStart, forMainFrameOnly: true)
-         contentController.addUserScript(userScript)
-  
+
         scriptSource = """
         Onfido.init({
             token: '\(token)',
@@ -107,7 +85,7 @@ final class WebViewViewController: UIViewController {
         return webConfiguration
     }
 
-    private func setupWebView(config: WKWebViewConfiguration) {
+    private func setupWebView(config: WKWebViewConfiguration, sdkTargetVersion: String) {
         let webView = WKWebView(frame: CGRect.zero, configuration: config)
         webView.navigationDelegate = self
 
@@ -120,8 +98,8 @@ final class WebViewViewController: UIViewController {
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12)
         ])
-
-        webView.load("index", version: .cdn) { err in
+        
+        webView.load("index", sdkTargetVersion: sdkTargetVersion) { err in
             print("🚨🚨🚨: \(err)")
         }
         
