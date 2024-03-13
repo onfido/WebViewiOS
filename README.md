@@ -18,7 +18,7 @@ You can find more detailed documentation here:
 
 ### iOS
 
-You will need to enable Camera, Mic, Photo Library and Location Access in your `info.plist` file:
+You will need to enable Camera, Mic, Photo Library and Location Access in your `Info.plist` file:
 
 ```
     <key>NSCameraUsageDescription</key>
@@ -30,3 +30,25 @@ You will need to enable Camera, Mic, Photo Library and Location Access in your `
     <key>NSPhotoLibraryUsageDescription</key>
     <string>Photo Library Access</string>
 ```
+
+## Environment Variables
+
+To load the WebView, we require an `API_KEY` and a `WORKFLOW_ID` defined within a `Env.xcconfig` file. 
+This can file can be located anywhere, but for simplicity we recommend adding it within `SmartCaptureDemo/EnvironmentVariables`.
+
+The file should have the following format:
+
+```
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+API_KEY=<YOUR_API_KEY_HERE>
+WORKFLOW_ID=<YOUR_WORKFLOW_ID_HERE>
+SDK_TARGET_VERSION=<SDK_VERSION_YOU_WISH_TO_TARGET>
+```
+
+**Please Note:** The `SDK_TARGET_VERSION` can be left blank above if you wish to target the latest version.
+
+ **Important note regarding the environment variable set up**
+ The Environment variables are used for internal/demo purposes only. The method used here is appropriate for certain requirements, but it is not encouraged for secrets.
+ Please see here for more details, specifically, the end regarding secrets: https://nshipster.com/xcconfig
