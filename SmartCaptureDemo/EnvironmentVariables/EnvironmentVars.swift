@@ -1,8 +1,7 @@
 //
 //  EnvironmentVars.swift
-//  SmartCaptureDemo
 //
-//  Created by Jonathan Go on 27.02.24.
+//  Copyright © 2016-2024 Onfido. All rights reserved.
 //
 
 import Foundation

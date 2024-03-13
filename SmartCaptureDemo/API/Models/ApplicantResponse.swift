@@ -1,8 +1,7 @@
 //
 //  ApplicantResponse.swift
-//  SmartCaptureDemo
 //
-//  Created by vincent.kearney on 13.03.24.
+//  Copyright © 2016-2024 Onfido. All rights reserved.
 //
 
 struct ApplicantResponse: Decodable {

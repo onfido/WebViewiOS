@@ -1,8 +1,7 @@
 //
-//  APIManagerError.swift
-//  SmartCaptureDemo
+//  ApiManagerError.swift
 //
-//  Copyright © 2016-2023 Onfido. All rights reserved.
+//  Copyright © 2016-2024 Onfido. All rights reserved.
 //
 
 import Foundation
@@ -28,9 +27,9 @@ enum ApiManagerError: Error {
             return "There was an error with the server. Please try again."
         case .invalidData:
             return "invalid data"
-        case .urlError(statuscode: let statuscode):
+        case let .urlError(statuscode: statuscode):
             return "There was an an httpResponse status code error: \(statuscode)"
-        case .unknown(let error):
+        case let .unknown(error):
             return error.localizedDescription
         }
     }

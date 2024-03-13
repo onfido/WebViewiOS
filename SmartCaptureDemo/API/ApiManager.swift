@@ -1,8 +1,7 @@
 //
-//  APIManager.swift
-//  SmartCaptureDemo
+//  ApiManager.swift
 //
-//  Copyright © 2016-2023 Onfido. All rights reserved.
+//  Copyright © 2016-2024 Onfido. All rights reserved.
 //
 
 import UIKit
@@ -39,11 +38,11 @@ final class ApiManager {
                 "last_name": "Doe",
                 "email": "john.doe@gmail.com"
             ]
-        case .sdkTokenApi(let id):
+        case let .sdkTokenApi(id):
             parameters = [
                 "applicant_id": "\(id)"
             ]
-        case .workFlowRunApi(let id):
+        case let .workFlowRunApi(id):
             parameters = [
                 "applicant_id": "\(id)",
                 "workflow_id": "\(workflowId)"

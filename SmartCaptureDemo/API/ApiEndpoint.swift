@@ -1,8 +1,7 @@
 //
 //  ApiEndpoint.swift
-//  SmartCaptureDemo
 //
-//  Copyright © 2016-2023 Onfido. All rights reserved.
+//  Copyright © 2016-2024 Onfido. All rights reserved.
 //
 
 import Foundation
@@ -11,7 +10,7 @@ enum ApiEndpoint {
     case applicantApi
     case sdkTokenApi(applicantID: String)
     case workFlowRunApi(applicantID: String)
-    
+
     var path: String {
         switch self {
         case .applicantApi:

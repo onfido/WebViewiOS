@@ -1,15 +1,13 @@
 //
 //  WebViewViewController.swift
-//  SmartCaptureDemo
 //
-//  Copyright © 2016-2023 Onfido. All rights reserved.
+//  Copyright © 2016-2024 Onfido. All rights reserved.
 //
 
 import UIKit
 import WebKit
 
 final class WebViewViewController: UIViewController {
-
     // MARK: - Properties
 
     private let sdkTargetVersion: String
@@ -31,9 +29,9 @@ final class WebViewViewController: UIViewController {
                 let workflowRunResponse: WorkFlowRunResponse = try await ApiManager.shared.getData(
                     from: .workFlowRunApi(applicantID: applicantResponse.id)
                 )
-                
+
                 print("ℹ️ Integrating with Web SDK version: \(sdkTargetVersion)")
-                
+
                 let config = setupWebConfiguration(token: sdkTokenResponse.token, workflowRunId: workflowRunResponse.id)
                 setupWebView(config: config, sdkTargetVersion: sdkTargetVersion)
             } catch {
@@ -42,6 +40,7 @@ final class WebViewViewController: UIViewController {
         }
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -53,12 +52,14 @@ final class WebViewViewController: UIViewController {
     }
 
     // MARK: - Private Methods
-    @MainActor private func setupWebConfiguration(token: String?, workflowRunId: String?) -> WKWebViewConfiguration {
+
+    @MainActor
+    private func setupWebConfiguration(token: String?, workflowRunId: String?) -> WKWebViewConfiguration {
         /// Load script
         var scriptSource: String?
 
         guard let token, let workflowRunId else { return WKWebViewConfiguration() }
-        
+
         let contentController = WKUserContentController()
 
         scriptSource = """
@@ -68,12 +69,12 @@ final class WebViewViewController: UIViewController {
             containerId: 'onfido-mount'
         })
         """
-        
+
         /// Inject script into WebView controller
         guard let scriptSource else { return WKWebViewConfiguration() }
-      
+
         let script = WKUserScript(source: scriptSource, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
-        contentController.addUserScript( script)
+        contentController.addUserScript(script)
 
         /// Add callback handlers see `WKScriptMessageHandler`
         contentController.add(self, name: "errorHandler")
@@ -99,11 +100,11 @@ final class WebViewViewController: UIViewController {
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12)
         ])
-        
+
         webView.load("index", sdkTargetVersion: sdkTargetVersion) { err in
             print("🚨🚨🚨: \(err)")
         }
-        
+
         self.webView = webView
     }
 }
