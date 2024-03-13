@@ -49,6 +49,7 @@ final class WebViewViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.hidesBackButton = true
     }
 
     // MARK: - Private Methods
