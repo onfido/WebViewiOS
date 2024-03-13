@@ -86,9 +86,6 @@ final class WebViewViewController: UIViewController {
 
         let contentController = WKUserContentController()
         contentController.addUserScript(script)
-        /// Add callback handlers see `WKScriptMessageHandler`
-        contentController.add(self, name: "errorHandler")
-        contentController.add(self, name: "successHandler")
 
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.userContentController = contentController
@@ -128,30 +125,5 @@ extension WebViewViewController: WKNavigationDelegate {
         decisionHandler: @escaping (WKNavigationActionPolicy) -> Void
     ) {
         decisionHandler(.allow)
-    }
-}
-
-// MARK: - WKScriptMessageHandler
-
-extension WebViewViewController: WKScriptMessageHandler {
-    /// Handling the callback from WebView
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        let messageBody = message.body as? String ?? ""
-
-        if message.name == "errorHandler" {
-            /// Handle Error
-            print(messageBody)
-            showAlert(title: "Error", with: messageBody)
-        } else if message.name == "successHandler" {
-            /// Handle Success
-            print(messageBody)
-            showAlert(title: "Smart Capture", with: messageBody)
-        }
-    }
-
-    func showAlert(title: String, with message: String) {
-        let controller = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        controller.addAction(.init(title: "Okay", style: .cancel))
-        present(controller, animated: true)
     }
 }
