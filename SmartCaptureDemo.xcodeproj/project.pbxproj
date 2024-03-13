@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		701A39852B95D4E500CB1BF8 /* Env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 701A39842B95D4E500CB1BF8 /* Env.xcconfig */; };
 		878C0A532B86523F00781853 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7B02B865065009D81F1 /* WebView.swift */; };
-		878C0A542B86523F00781853 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7AE2B865040009D81F1 /* MainVC.swift */; };
 		878C0A552B86523F00781853 /* HTTPURLResponse+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7AB2B865014009D81F1 /* HTTPURLResponse+Ext.swift */; };
 		878C0A562B86523F00781853 /* WebView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7AA2B865014009D81F1 /* WebView+Ext.swift */; };
 		878C0A572B86525700781853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB728D358A5008273D4 /* AppDelegate.swift */; };
@@ -33,7 +32,6 @@
 		8734E7A72B864FF9009D81F1 /* Extension */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Extension; path = SmartCaptureDemo/Extension; sourceTree = "<group>"; };
 		8734E7AA2B865014009D81F1 /* WebView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "WebView+Ext.swift"; path = "SmartCaptureDemo/Extension/WebView+Ext.swift"; sourceTree = "<group>"; };
 		8734E7AB2B865014009D81F1 /* HTTPURLResponse+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "HTTPURLResponse+Ext.swift"; path = "SmartCaptureDemo/Extension/HTTPURLResponse+Ext.swift"; sourceTree = "<group>"; };
-		8734E7AE2B865040009D81F1 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = SmartCaptureDemo/MainVC.swift; sourceTree = "<group>"; };
 		8734E7B02B865065009D81F1 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WebView.swift; path = SmartCaptureDemo/WebView.swift; sourceTree = "<group>"; };
 		878C0A5D2B8655E700781853 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index.html; path = SmartCaptureDemo/index.html; sourceTree = "<group>"; };
 		878C0A602B8F436100781853 /* EnvironmentVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EnvironmentVars.swift; path = SmartCaptureDemo/EnvironmentVars.swift; sourceTree = "<group>"; };
@@ -67,7 +65,6 @@
 				878C0A5D2B8655E700781853 /* index.html */,
 				8734E7B02B865065009D81F1 /* WebView.swift */,
 				878C0A602B8F436100781853 /* EnvironmentVars.swift */,
-				8734E7AE2B865040009D81F1 /* MainVC.swift */,
 				8734E7AB2B865014009D81F1 /* HTTPURLResponse+Ext.swift */,
 				8734E7AA2B865014009D81F1 /* WebView+Ext.swift */,
 				8734E7A72B864FF9009D81F1 /* Extension */,
@@ -187,7 +184,6 @@
 				878C0A582B86525700781853 /* SceneDelegate.swift in Sources */,
 				878C0A592B86525700781853 /* WebViewViewController.swift in Sources */,
 				878C0A532B86523F00781853 /* WebView.swift in Sources */,
-				878C0A542B86523F00781853 /* MainVC.swift in Sources */,
 				878C0A552B86523F00781853 /* HTTPURLResponse+Ext.swift in Sources */,
 				878C0A562B86523F00781853 /* WebView+Ext.swift in Sources */,
 				878C0A612B8F436100781853 /* EnvironmentVars.swift in Sources */,
