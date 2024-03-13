@@ -23,7 +23,6 @@
 		9BD193272BA1CE140076E6E6 /* WorkFlowRunResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD193262BA1CE140076E6E6 /* WorkFlowRunResponse.swift */; };
 		FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC028D358A7008273D4 /* Assets.xcassets */; };
 		FCB28EC428D358A7008273D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */; };
-		FCD5369328DB50EA0037152A /* webview_script.js in Resources */ = {isa = PBXBuildFile; fileRef = FCD5369228DB50EA0037152A /* webview_script.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +37,6 @@
 		9BD193222BA1CDD30076E6E6 /* ApplicantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantResponse.swift; sourceTree = "<group>"; };
 		9BD193242BA1CDFE0076E6E6 /* SDKTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKTokenResponse.swift; sourceTree = "<group>"; };
 		9BD193262BA1CE140076E6E6 /* WorkFlowRunResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlowRunResponse.swift; sourceTree = "<group>"; };
-		B3BF755D296DB395007FA070 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
-		B3BF755F29704D50007FA070 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		FCB28EB428D358A5008273D4 /* SmartCaptureDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCaptureDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB28EB728D358A5008273D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB28EB928D358A5008273D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,7 +44,6 @@
 		FCB28EC328D358A7008273D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCB28EC528D358A7008273D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB28ECB28D35937008273D4 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
-		FCD5369228DB50EA0037152A /* webview_script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = webview_script.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +101,6 @@
 			children = (
 				878C0A5D2B8655E700781853 /* index.html */,
 				FCB28EC028D358A7008273D4 /* Assets.xcassets */,
-				FCD5369228DB50EA0037152A /* webview_script.js */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -114,7 +109,6 @@
 			isa = PBXGroup;
 			children = (
 				FCB28ECB28D35937008273D4 /* WebViewViewController.swift */,
-				B3BF755D296DB395007FA070 /* ConnectionView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -147,7 +141,6 @@
 				9BD193192BA1CC4E0076E6E6 /* EnvironmentVariables */,
 				9BD193202BA1CD820076E6E6 /* Extensions */,
 				9BD193292BA1CF460076E6E6 /* UI */,
-				B3BF755F29704D50007FA070 /* Reachability.swift */,
 			);
 			path = SmartCaptureDemo;
 			sourceTree = "<group>";
@@ -216,7 +209,6 @@
 			files = (
 				878C0A5E2B8655E700781853 /* index.html in Resources */,
 				FCB28EC428D358A7008273D4 /* LaunchScreen.storyboard in Resources */,
-				FCD5369328DB50EA0037152A /* webview_script.js in Resources */,
 				701A39852B95D4E500CB1BF8 /* Env.xcconfig in Resources */,
 				FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */,
 			);
