@@ -30,7 +30,7 @@ enum ApiManagerError: Error {
         case let .urlError(statuscode: statuscode):
             return "There was an an httpResponse status code error: \(statuscode)"
         case let .unknown(error):
-            return error.localizedDescription
+            return "\(error)"
         }
     }
 }

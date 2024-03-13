@@ -7,8 +7,8 @@
 import WebKit
 
 extension WKWebView {
-    func load(_ htmlFileName: String?, sdkTargetVersion: String, onError: (ApiManagerError) -> Void) {
-        guard let filePath = Bundle.main.path(forResource: htmlFileName, ofType: "html") else {
+    func loadOnfido(sdkTargetVersion: String, onError: (ApiManagerError) -> Void) {
+        guard let filePath = Bundle.main.path(forResource: "index", ofType: "html") else {
             return onError(.invalidFilePath)
         }
 
@@ -18,7 +18,7 @@ extension WKWebView {
 
             loadHTMLString(htmlString, baseURL: URL(fileURLWithPath: filePath))
         } catch {
-            onError(.contentConversion(error.localizedDescription))
+            onError(.contentConversion("\(error)"))
         }
     }
 }

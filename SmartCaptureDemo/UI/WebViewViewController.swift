@@ -11,33 +11,14 @@ final class WebViewViewController: UIViewController {
     // MARK: - Properties
 
     private let sdkTargetVersion: String
-    private var webView: WKWebView?
+    private var wkWebView: WKWebView?
 
     // MARK: - Initialization
 
     init(sdkTargetVersion: String) {
         self.sdkTargetVersion = sdkTargetVersion
+
         super.init(nibName: nil, bundle: nil)
-
-        Task {
-            do {
-                let applicantResponse: ApplicantResponse = try await ApiManager.shared.getData(from: .applicantApi)
-
-                let sdkTokenResponse: SDKTokenResponse = try await ApiManager.shared.getData(
-                    from: .sdkTokenApi(applicantID: applicantResponse.id)
-                )
-                let workflowRunResponse: WorkFlowRunResponse = try await ApiManager.shared.getData(
-                    from: .workFlowRunApi(applicantID: applicantResponse.id)
-                )
-
-                print("ℹ️ Integrating with Web SDK version: \(sdkTargetVersion)")
-
-                let config = setupWebConfiguration(token: sdkTokenResponse.token, workflowRunId: workflowRunResponse.id)
-                setupWebView(config: config, sdkTargetVersion: sdkTargetVersion)
-            } catch {
-                print("⚠️: \(error)")
-            }
-        }
     }
 
     @available(*, unavailable)
@@ -45,24 +26,51 @@ final class WebViewViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
+
     override public func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
+
+        Task {
+            let webViewConfiguration = try await createWebViewConfiguration()
+            let webView = webView(config: webViewConfiguration, sdkTargetVersion: sdkTargetVersion)
+            self.wkWebView = webView
+            view.addSubview(webView)
+            configureWebViewConstraints()
+        }
     }
 
-    // MARK: - Private Methods
+    // MARK: - Private API
+
+    private func createWebViewConfiguration() async throws -> WKWebViewConfiguration {
+        do {
+            let apiManager = ApiManager.shared
+
+            let applicantResponse: ApplicantResponse = try await apiManager.getData(from: .applicantApi)
+            let sdkTokenResponse: SDKTokenResponse = try await apiManager.getData(
+                from: .sdkTokenApi(applicantID: applicantResponse.id)
+            )
+            let workflowRunResponse: WorkFlowRunResponse = try await apiManager.getData(
+                from: .workFlowRunApi(applicantID: applicantResponse.id)
+            )
+
+            print("ℹ️ Integrating with Web SDK version: \(sdkTargetVersion)")
+
+            return webViewConfiguration(token: sdkTokenResponse.token, workflowRunId: workflowRunResponse.id)
+        } catch {
+            fatalError("🚨: Failed to create WKWebViewConfiguration. Error = \(error)")
+        }
+    }
 
     @MainActor
-    private func setupWebConfiguration(token: String?, workflowRunId: String?) -> WKWebViewConfiguration {
-        /// Load script
-        var scriptSource: String?
+    private func webViewConfiguration(token: String?, workflowRunId: String?) -> WKWebViewConfiguration {
+        guard let token, let workflowRunId else {
+            fatalError("🚨: No token or workflowRunId configured. Cannot launch WebView.")
+        }
 
-        guard let token, let workflowRunId else { return WKWebViewConfiguration() }
-
-        let contentController = WKUserContentController()
-
-        scriptSource = """
+        let webViewInitialisationScript = """
         Onfido.init({
             token: '\(token)',
             workflowRunId: '\(workflowRunId)',
@@ -70,44 +78,48 @@ final class WebViewViewController: UIViewController {
         })
         """
 
-        /// Inject script into WebView controller
-        guard let scriptSource else { return WKWebViewConfiguration() }
+        let script = WKUserScript(
+            source: webViewInitialisationScript,
+            injectionTime: .atDocumentEnd,
+            forMainFrameOnly: true
+        )
 
-        let script = WKUserScript(source: scriptSource, injectionTime: .atDocumentEnd, forMainFrameOnly: true)
+        let contentController = WKUserContentController()
         contentController.addUserScript(script)
-
         /// Add callback handlers see `WKScriptMessageHandler`
         contentController.add(self, name: "errorHandler")
         contentController.add(self, name: "successHandler")
 
-        /// Configure WebView
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.userContentController = contentController
-
         return webConfiguration
     }
 
-    private func setupWebView(config: WKWebViewConfiguration, sdkTargetVersion: String) {
-        let webView = WKWebView(frame: CGRect.zero, configuration: config)
+    private func webView(config: WKWebViewConfiguration, sdkTargetVersion: String) -> WKWebView {
+        let webView = WKWebView(frame: .zero, configuration: config)
         webView.navigationDelegate = self
+        webView.loadOnfido(sdkTargetVersion: sdkTargetVersion) { err in
+            print("🚨: \(err)")
+        }
+        return webView
+    }
 
-        view.addSubview(webView)
-        webView.translatesAutoresizingMaskIntoConstraints = false
-
-        NSLayoutConstraint.activate([
-            webView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            webView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12)
-        ])
-
-        webView.load("index", sdkTargetVersion: sdkTargetVersion) { err in
-            print("🚨🚨🚨: \(err)")
+    private func configureWebViewConstraints() {
+        guard let wkWebView else {
+            fatalError("🚨 WKWebView property is nil")
         }
 
-        self.webView = webView
+        wkWebView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            wkWebView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            wkWebView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            wkWebView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            wkWebView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -12)
+        ])
     }
 }
+
+// MARK: - WKNavigationDelegate
 
 extension WebViewViewController: WKNavigationDelegate {
     public func webView(
@@ -118,6 +130,8 @@ extension WebViewViewController: WKNavigationDelegate {
         decisionHandler(.allow)
     }
 }
+
+// MARK: - WKScriptMessageHandler
 
 extension WebViewViewController: WKScriptMessageHandler {
     /// Handling the callback from WebView

@@ -17,7 +17,6 @@
 		878C0A5E2B8655E700781853 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 878C0A5D2B8655E700781853 /* index.html */; };
 		878C0A612B8F436100781853 /* EnvironmentVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C0A602B8F436100781853 /* EnvironmentVars.swift */; };
 		9BD1931E2BA1CD780076E6E6 /* WebView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1931D2BA1CD780076E6E6 /* WebView+Ext.swift */; };
-		9BD1931F2BA1CD780076E6E6 /* HTTPURLResponse+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1931C2BA1CD780076E6E6 /* HTTPURLResponse+Ext.swift */; };
 		9BD193232BA1CDD30076E6E6 /* ApplicantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD193222BA1CDD30076E6E6 /* ApplicantResponse.swift */; };
 		9BD193252BA1CDFE0076E6E6 /* SDKTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD193242BA1CDFE0076E6E6 /* SDKTokenResponse.swift */; };
 		9BD193272BA1CE140076E6E6 /* WorkFlowRunResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD193262BA1CE140076E6E6 /* WorkFlowRunResponse.swift */; };
@@ -32,7 +31,6 @@
 		8734E7A32B864FE2009D81F1 /* ApiManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerError.swift; sourceTree = "<group>"; };
 		878C0A5D2B8655E700781853 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		878C0A602B8F436100781853 /* EnvironmentVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentVars.swift; sourceTree = "<group>"; };
-		9BD1931C2BA1CD780076E6E6 /* HTTPURLResponse+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPURLResponse+Ext.swift"; sourceTree = "<group>"; };
 		9BD1931D2BA1CD780076E6E6 /* WebView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Ext.swift"; sourceTree = "<group>"; };
 		9BD193222BA1CDD30076E6E6 /* ApplicantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantResponse.swift; sourceTree = "<group>"; };
 		9BD193242BA1CDFE0076E6E6 /* SDKTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKTokenResponse.swift; sourceTree = "<group>"; };
@@ -80,7 +78,6 @@
 		9BD193202BA1CD820076E6E6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9BD1931C2BA1CD780076E6E6 /* HTTPURLResponse+Ext.swift */,
 				9BD1931D2BA1CD780076E6E6 /* WebView+Ext.swift */,
 			);
 			path = Extensions;
@@ -225,7 +222,6 @@
 				878C0A5A2B86527800781853 /* ApiEndpoint.swift in Sources */,
 				9BD193272BA1CE140076E6E6 /* WorkFlowRunResponse.swift in Sources */,
 				878C0A5B2B86527800781853 /* ApiManager.swift in Sources */,
-				9BD1931F2BA1CD780076E6E6 /* HTTPURLResponse+Ext.swift in Sources */,
 				878C0A5C2B86527800781853 /* ApiManagerError.swift in Sources */,
 				878C0A572B86525700781853 /* AppDelegate.swift in Sources */,
 				878C0A582B86525700781853 /* SceneDelegate.swift in Sources */,
