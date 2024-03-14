@@ -1,0 +1,9 @@
+## macOS
+.DS_Store
+
+## User Settings
+xcuserdata/
+.xcuserstate
+
+## Internal Demo Purposes
+Env.xcconfig

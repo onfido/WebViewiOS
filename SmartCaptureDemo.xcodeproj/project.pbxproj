@@ -7,19 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B3BF755E296DB395007FA070 /* ConnectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF755D296DB395007FA070 /* ConnectionView.swift */; };
-		B3BF756029704D50007FA070 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3BF755F29704D50007FA070 /* Reachability.swift */; };
-		FCB28EB828D358A5008273D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB728D358A5008273D4 /* AppDelegate.swift */; };
-		FCB28EBA28D358A5008273D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB928D358A5008273D4 /* SceneDelegate.swift */; };
+		701A39852B95D4E500CB1BF8 /* Env.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 701A39842B95D4E500CB1BF8 /* Env.xcconfig */; };
+		878C0A572B86525700781853 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB728D358A5008273D4 /* AppDelegate.swift */; };
+		878C0A582B86525700781853 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28EB928D358A5008273D4 /* SceneDelegate.swift */; };
+		878C0A592B86525700781853 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28ECB28D35937008273D4 /* WebViewViewController.swift */; };
+		878C0A5A2B86527800781853 /* ApiEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7A12B864FE2009D81F1 /* ApiEndpoint.swift */; };
+		878C0A5B2B86527800781853 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7A22B864FE2009D81F1 /* ApiManager.swift */; };
+		878C0A5C2B86527800781853 /* ApiManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8734E7A32B864FE2009D81F1 /* ApiManagerError.swift */; };
+		878C0A5E2B8655E700781853 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 878C0A5D2B8655E700781853 /* index.html */; };
+		878C0A612B8F436100781853 /* EnvironmentVars.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878C0A602B8F436100781853 /* EnvironmentVars.swift */; };
+		9BD1931E2BA1CD780076E6E6 /* WebView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD1931D2BA1CD780076E6E6 /* WebView+Ext.swift */; };
+		9BD193232BA1CDD30076E6E6 /* ApplicantResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD193222BA1CDD30076E6E6 /* ApplicantResponse.swift */; };
+		9BD193252BA1CDFE0076E6E6 /* SDKTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD193242BA1CDFE0076E6E6 /* SDKTokenResponse.swift */; };
+		9BD193272BA1CE140076E6E6 /* WorkFlowRunResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD193262BA1CE140076E6E6 /* WorkFlowRunResponse.swift */; };
 		FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC028D358A7008273D4 /* Assets.xcassets */; };
 		FCB28EC428D358A7008273D4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */; };
-		FCB28ECC28D35937008273D4 /* WebViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCB28ECB28D35937008273D4 /* WebViewViewController.swift */; };
-		FCD5369328DB50EA0037152A /* webview_script.js in Resources */ = {isa = PBXBuildFile; fileRef = FCD5369228DB50EA0037152A /* webview_script.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B3BF755D296DB395007FA070 /* ConnectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionView.swift; sourceTree = "<group>"; };
-		B3BF755F29704D50007FA070 /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		701A39842B95D4E500CB1BF8 /* Env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Env.xcconfig; sourceTree = "<group>"; };
+		8734E7A12B864FE2009D81F1 /* ApiEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiEndpoint.swift; sourceTree = "<group>"; };
+		8734E7A22B864FE2009D81F1 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
+		8734E7A32B864FE2009D81F1 /* ApiManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerError.swift; sourceTree = "<group>"; };
+		878C0A5D2B8655E700781853 /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		878C0A602B8F436100781853 /* EnvironmentVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentVars.swift; sourceTree = "<group>"; };
+		9BD1931D2BA1CD780076E6E6 /* WebView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebView+Ext.swift"; sourceTree = "<group>"; };
+		9BD193222BA1CDD30076E6E6 /* ApplicantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantResponse.swift; sourceTree = "<group>"; };
+		9BD193242BA1CDFE0076E6E6 /* SDKTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKTokenResponse.swift; sourceTree = "<group>"; };
+		9BD193262BA1CE140076E6E6 /* WorkFlowRunResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkFlowRunResponse.swift; sourceTree = "<group>"; };
 		FCB28EB428D358A5008273D4 /* SmartCaptureDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartCaptureDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCB28EB728D358A5008273D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCB28EB928D358A5008273D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,7 +42,6 @@
 		FCB28EC328D358A7008273D4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FCB28EC528D358A7008273D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCB28ECB28D35937008273D4 /* WebViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewViewController.swift; sourceTree = "<group>"; };
-		FCD5369228DB50EA0037152A /* webview_script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = webview_script.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +55,61 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9BD193192BA1CC4E0076E6E6 /* EnvironmentVariables */ = {
+			isa = PBXGroup;
+			children = (
+				701A39842B95D4E500CB1BF8 /* Env.xcconfig */,
+				878C0A602B8F436100781853 /* EnvironmentVars.swift */,
+			);
+			path = EnvironmentVariables;
+			sourceTree = "<group>";
+		};
+		9BD1931B2BA1CD6D0076E6E6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9BD193212BA1CDBC0076E6E6 /* Models */,
+				8734E7A12B864FE2009D81F1 /* ApiEndpoint.swift */,
+				8734E7A22B864FE2009D81F1 /* ApiManager.swift */,
+				8734E7A32B864FE2009D81F1 /* ApiManagerError.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		9BD193202BA1CD820076E6E6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9BD1931D2BA1CD780076E6E6 /* WebView+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9BD193212BA1CDBC0076E6E6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9BD193222BA1CDD30076E6E6 /* ApplicantResponse.swift */,
+				9BD193242BA1CDFE0076E6E6 /* SDKTokenResponse.swift */,
+				9BD193262BA1CE140076E6E6 /* WorkFlowRunResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9BD193282BA1CE640076E6E6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				878C0A5D2B8655E700781853 /* index.html */,
+				FCB28EC028D358A7008273D4 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9BD193292BA1CF460076E6E6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				FCB28ECB28D35937008273D4 /* WebViewViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		FCB28EAB28D358A5008273D4 = {
 			isa = PBXGroup;
 			children = (
@@ -62,13 +131,13 @@
 			children = (
 				FCB28EB728D358A5008273D4 /* AppDelegate.swift */,
 				FCB28EB928D358A5008273D4 /* SceneDelegate.swift */,
-				FCB28ECB28D35937008273D4 /* WebViewViewController.swift */,
-				B3BF755F29704D50007FA070 /* Reachability.swift */,
-				B3BF755D296DB395007FA070 /* ConnectionView.swift */,
-				FCD5369228DB50EA0037152A /* webview_script.js */,
-				FCB28EC028D358A7008273D4 /* Assets.xcassets */,
-				FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */,
 				FCB28EC528D358A7008273D4 /* Info.plist */,
+				FCB28EC228D358A7008273D4 /* LaunchScreen.storyboard */,
+				9BD193282BA1CE640076E6E6 /* Resources */,
+				9BD1931B2BA1CD6D0076E6E6 /* API */,
+				9BD193192BA1CC4E0076E6E6 /* EnvironmentVariables */,
+				9BD193202BA1CD820076E6E6 /* Extensions */,
+				9BD193292BA1CF460076E6E6 /* UI */,
 			);
 			path = SmartCaptureDemo;
 			sourceTree = "<group>";
@@ -80,9 +149,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCB28EC828D358A7008273D4 /* Build configuration list for PBXNativeTarget "SmartCaptureDemo" */;
 			buildPhases = (
-				FCB28EB028D358A5008273D4 /* Sources */,
 				FCB28EB128D358A5008273D4 /* Frameworks */,
 				FCB28EB228D358A5008273D4 /* Resources */,
+				878C0A522B86523300781853 /* Sources */,
 			);
 			buildRules = (
 			);
@@ -135,8 +204,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878C0A5E2B8655E700781853 /* index.html in Resources */,
 				FCB28EC428D358A7008273D4 /* LaunchScreen.storyboard in Resources */,
-				FCD5369328DB50EA0037152A /* webview_script.js in Resources */,
+				701A39852B95D4E500CB1BF8 /* Env.xcconfig in Resources */,
 				FCB28EC128D358A7008273D4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,15 +214,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FCB28EB028D358A5008273D4 /* Sources */ = {
+		878C0A522B86523300781853 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FCB28EB828D358A5008273D4 /* AppDelegate.swift in Sources */,
-				FCB28ECC28D35937008273D4 /* WebViewViewController.swift in Sources */,
-				B3BF755E296DB395007FA070 /* ConnectionView.swift in Sources */,
-				B3BF756029704D50007FA070 /* Reachability.swift in Sources */,
-				FCB28EBA28D358A5008273D4 /* SceneDelegate.swift in Sources */,
+				9BD193232BA1CDD30076E6E6 /* ApplicantResponse.swift in Sources */,
+				878C0A5A2B86527800781853 /* ApiEndpoint.swift in Sources */,
+				9BD193272BA1CE140076E6E6 /* WorkFlowRunResponse.swift in Sources */,
+				878C0A5B2B86527800781853 /* ApiManager.swift in Sources */,
+				878C0A5C2B86527800781853 /* ApiManagerError.swift in Sources */,
+				878C0A572B86525700781853 /* AppDelegate.swift in Sources */,
+				878C0A582B86525700781853 /* SceneDelegate.swift in Sources */,
+				9BD1931E2BA1CD780076E6E6 /* WebView+Ext.swift in Sources */,
+				878C0A592B86525700781853 /* WebViewViewController.swift in Sources */,
+				878C0A612B8F436100781853 /* EnvironmentVars.swift in Sources */,
+				9BD193252BA1CDFE0076E6E6 /* SDKTokenResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +248,7 @@
 /* Begin XCBuildConfiguration section */
 		FCB28EC628D358A7008273D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 701A39842B95D4E500CB1BF8 /* Env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -232,6 +309,7 @@
 		};
 		FCB28EC728D358A7008273D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 701A39842B95D4E500CB1BF8 /* Env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -286,15 +364,15 @@
 		};
 		FCB28EC928D358A7008273D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 701A39842B95D4E500CB1BF8 /* Env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2X946JA9UV;
+				DEVELOPMENT_TEAM = 3DF7TM3Y9C;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmartCaptureDemo/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -307,6 +385,8 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.onfido.WebViewiOS;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -317,6 +397,7 @@
 		};
 		FCB28ECA28D358A7008273D4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 701A39842B95D4E500CB1BF8 /* Env.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -324,10 +405,9 @@
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
-				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3DF7TM3Y9C;
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 2X946JA9UV;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SmartCaptureDemo/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Permission needed for Onfido SDK work. You should add your own message here.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -340,10 +420,12 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				NEW_SETTING = "";
+				NEW_SETTING1 = "";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.onfido.smart-capture-demo-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "smart-capture-appstorer-adhoc";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "smart-capture-demo-inhouse-pp";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

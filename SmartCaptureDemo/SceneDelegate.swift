@@ -1,25 +1,23 @@
 //
 //  SceneDelegate.swift
-//  WebViewiOS
 //
-//  Created by Pedro Henrique on 15/09/2022.
+//  Copyright © 2016-2024 Onfido. All rights reserved.
 //
 
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
     var window: UIWindow?
-
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        self.window = UIWindow(windowScene: windowScene)
-        self.window?.rootViewController = WebViewViewController()
-        self.window?.makeKeyAndVisible()
+        window = UIWindow(windowScene: windowScene)
+        let webViewController = WebViewViewController(sdkTargetVersion: EnvironmentVars.sdkTargetVersion)
+        window?.rootViewController = UINavigationController(rootViewController: webViewController)
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -49,7 +47,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
-
-
 }
-

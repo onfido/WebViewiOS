@@ -1,8 +1,7 @@
 //
 //  AppDelegate.swift
-//  WebViewiOS
 //
-//  Created by Pedro Henrique on 15/09/2022.
+//  Copyright © 2016-2024 Onfido. All rights reserved.
 //
 
 import UIKit
@@ -13,10 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        window = .init(frame: UIScreen.main.bounds)
-        window?.rootViewController = WebViewViewController()
-        window?.makeKeyAndVisible()
-        return true
+        true
     }
 
     // MARK: UISceneSession Lifecycle
@@ -24,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
