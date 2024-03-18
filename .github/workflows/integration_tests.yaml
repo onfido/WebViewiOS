@@ -1,0 +1,41 @@
+name: XCUI Tests
+on:
+  workflow_dispatch:
+    inputs:
+      SDK_TARGET_VERSION:
+        description: "Target a specific SDK version. Otherwise latest"
+        required: false
+  push:
+
+jobs:
+  build-and-test:
+    runs-on: macos-13
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: "15.2.0"
+
+      - name: Create env file
+        env:
+          API_TOKEN: ${{secrets.API_TOKEN}}
+          WORKFLOW_ID: ${{secrets.WORKFLOW_ID}}
+          SDK_TARGET_VERSION: ${{github.event.inputs.SDK_TARGET_VERSION}}
+        run: |
+          cd SmartCaptureDemo/EnvironmentVariables
+          touch Env.xcconfig
+          echo API_TOKEN="$API_TOKEN" >> Env.xcconfig
+          echo WORKFLOW_ID="$WORKFLOW_ID" >> Env.xcconfig
+          echo SDK_TARGET_VERSION="$SDK_TARGET_VERSION" >> Env.xcconfig
+
+      - name: Build and test
+        run: |
+          xcodebuild \
+          clean build test \
+          -project SmartCaptureDemo.xcodeproj \
+          -scheme SmartCaptureDemo \
+          -destination 'platform=iOS Simulator,name=iPhone 15 Pro'
