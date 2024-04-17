@@ -89,6 +89,8 @@ final class WebViewViewController: UIViewController {
 
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.userContentController = contentController
+        webConfiguration.allowsInlineMediaPlayback = true  
+        webConfiguration.mediaPlaybackRequiresUserAction = false 
         return webConfiguration
     }
 
