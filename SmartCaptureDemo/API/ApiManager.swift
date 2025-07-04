@@ -57,6 +57,9 @@ final class ApiManager {
                 "applicant_id": "\(id)"
             ]
         case let .workFlowRunApi(id):
+            guard let workflowId else {
+                fatalError("Workflow ID must be added in Env.xcconfig file. See README for more details.")
+            }
             parameters = [
                 "applicant_id": "\(id)",
                 "workflow_id": "\(workflowId)"

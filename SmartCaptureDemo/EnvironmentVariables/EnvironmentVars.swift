@@ -28,17 +28,10 @@ enum EnvironmentVars {
         return key
     }()
 
-    static let workflowID: String = {
-        guard let id = EnvironmentVars.infoDict["WORKFLOW_ID"] as? String, !id.isEmpty else {
+    static let workflowID: String? = {
+        guard let id = EnvironmentVars.infoDict["WORKFLOW_ID"] as? String else {
             fatalError("Cannot locate WORKFLOW_ID within Info.plist")
         }
-        return id
-    }()
-
-    static let sdkTargetVersion: String = {
-        guard let version = EnvironmentVars.infoDict["SDK_TARGET_VERSION"] as? String, !version.isEmpty else {
-            return "latest"
-        }
-        return version
+        return id.isEmpty ? nil : id
     }()
 }

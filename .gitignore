@@ -1,3 +1,5 @@
+.idea/
+
 ## macOS
 .DS_Store
 
@@ -6,4 +8,5 @@ xcuserdata/
 .xcuserstate
 
 ## Internal Demo Purposes
-Env.xcconfig
+**/Env.xcconfig
+.swiftformat
