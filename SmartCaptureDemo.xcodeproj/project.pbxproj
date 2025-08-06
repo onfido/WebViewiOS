@@ -60,7 +60,6 @@
 		8734E7A22B864FE2009D81F1 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 		8734E7A32B864FE2009D81F1 /* ApiManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerError.swift; sourceTree = "<group>"; };
 		878C0A602B8F436100781853 /* EnvironmentVars.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentVars.swift; sourceTree = "<group>"; };
-		9B554B492E16A0A5004E9B3A /* Env.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Env.xcconfig; sourceTree = "<group>"; };
 		9B5CAE302E168E84003FE8FC /* WebSDK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WebSDK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BD193222BA1CDD30076E6E6 /* ApplicantResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicantResponse.swift; sourceTree = "<group>"; };
 		9BD193242BA1CDFE0076E6E6 /* SDKTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SDKTokenResponse.swift; sourceTree = "<group>"; };
@@ -108,7 +107,6 @@
 			isa = PBXGroup;
 			children = (
 				878C0A602B8F436100781853 /* EnvironmentVars.swift */,
-				9B554B492E16A0A5004E9B3A /* Env.xcconfig */,
 			);
 			path = EnvironmentVariables;
 			sourceTree = "<group>";
@@ -513,7 +511,6 @@
 		};
 		FCB28EC628D358A7008273D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9B554B492E16A0A5004E9B3A /* Env.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

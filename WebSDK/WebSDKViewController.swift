@@ -10,7 +10,9 @@ import UIKit
 import WebKit
 
 public class WebSDKViewController: UIViewController {
-    private var webView: WKWebView! // Not recommended, used for demo purposes only
+    private lazy var webView: WKWebView = {
+        WKWebView(frame: .zero, configuration: webViewConfiguration())
+    }()
 
     private let permissionManager = PermissionsManager()
     private lazy var permissionHandler: PermissionHandler = .init(permissionManager: permissionManager)
@@ -41,8 +43,6 @@ public class WebSDKViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
 
-        let configuration = webViewConfiguration()
-        webView = WKWebView(frame: .zero, configuration: configuration)
         webView.uiDelegate = permissionHandler // This is key to manage permissions the WebView requests
         if #available(iOS 16.4, *) {
             webView.isInspectable = true
